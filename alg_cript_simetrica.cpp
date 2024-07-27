@@ -1,11 +1,21 @@
 #include <iostream>
 #include <string>
 
+/*Nas funções a seguir:
+const std::string& msg: Este parâmetro é uma referência constante para um objeto std::string chamado msg. 
+Isso significa que dentro da função encryption, você pode ler o conteúdo de msg, mas não pode modificá-lo.
+*/
+
+// Declara uma string contendo todos os caracteres permitidos para encriptação e decriptação.
 std::string alf = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,?!@# ";
 
 std::string encryption(const std::string& msg, int key) {
     std::string encoded = "";
     
+    /*Percorre cada caractere da mensagem. Se o caractere for encontrado na string alf, 
+    calcula a nova posição do caractere com a chave de criptografia 
+    e adiciona o caractere criptografado à string encoded. 
+    Se o caractere não for encontrado, ele é adicionado diretamente à string encoded. */
     for (char i : msg) {
         size_t pos = alf.find(i);
         if (pos != std::string::npos) {
